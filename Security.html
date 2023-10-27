@@ -12,11 +12,11 @@
     <input type="checkbox" id="check">
     <div class="login form">
       <header>Login</header>
-      <form action="#">
-        <input type="text" placeholder="Enter your email">
-        <input type="password" placeholder="Enter your password">
+      <form action="#" onsubmit="return login()">
+        <input type="text" id="loginEmail" placeholder="Enter your email">
+        <input type="password" id="loginPassword" placeholder="Enter your password">
         <a href="#">Forgot password?</a>
-        <input type="button" class="button" value="Login" onclick="window.location.href='index.html'">
+        <input type="submit" class="button" value="Login">
       </form>
       <div class="signup">
         <span class="signup">Don't have an account?
@@ -26,11 +26,11 @@
     </div>
     <div class="registration form">
       <header>Signup</header>
-      <form action="#">
-        <input type="text" placeholder="Enter your email">
-        <input type="password" placeholder="Create a password">
-        <input type="password" placeholder="Confirm your password">
-        <input type="button" class="button" value="Signup" onclick="window.location.href='index.html'">
+      <form action="#" onsubmit="return signup()">
+        <input type="text" id="signupEmail" placeholder="Enter your email">
+        <input type="password" id="signupPassword" placeholder="Create a password">
+        <input type="password" id="confirmPassword" placeholder="Confirm your password">
+        <input type="submit" class="button" value="Signup">
       </form>
       <div class="signup">
         <span class="signup">Already have an account?
@@ -39,5 +39,41 @@
       </div>
     </div>
   </div>
+
+  <script>
+    const users = [];
+  
+    function signup() {
+      const signupEmail = document.getElementById("signupEmail").value;
+      const signupPassword = document.getElementById("signupPassword").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
+  
+      if (signupPassword !== confirmPassword) {
+        alert("Passwords do not match.");
+        return false;
+      }
+  
+      users.push({ email: signupEmail, password: signupPassword });
+      alert("Signup successful!");
+      return true;
+    }
+  
+    function login() {
+      const loginEmail = document.getElementById("loginEmail").value;
+      const loginPassword = document.getElementById("loginPassword").value;
+  
+      const user = users.find(user => user.email === loginEmail && user.password === loginPassword);
+  
+      if (user) {
+        alert("Login successful!");
+        // Redirect to index.html
+        window.location.href = "index.html";
+        return false; // Prevent form submission
+      } else {
+        alert("Invalid email or password. Please try again.");
+        return false;
+      }
+    }
+  </script>  
 </body>
 </html>
