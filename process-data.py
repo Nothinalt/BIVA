@@ -18,18 +18,21 @@ def favicon():
         return "Favicon not found."
 
 # Route for processing form data
-@app.route('/process-data', methods=['POST'])
+@app.route('/process_data', methods=['POST'])
 def process_data():
     if request.method == 'POST':
-        name = request.form['name']
+        full_name = request.form['full-name']
         email = request.form['email']
         gender = request.form['gender']
-        interests = request.form.getlist('interests')
-        comments = request.form['comments']
+        date_of_birth = request.form['dob']
 
-        # You can now process the data, store it in a database, or perform any other required actions.
+        # Process the form data as needed
 
-        return "Data submitted successfully."
+        return "Form submitted successfully."
+
+@app.route('/create_id')
+def create_id():
+    return render_template('CreateID.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
