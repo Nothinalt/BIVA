@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blockchain Identity Verification App</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="./Css/styles.css">
 </head>
 <body>
     <header class="header">
@@ -13,38 +13,75 @@
         </div>
         <nav class="ribbon">
             <ul class="menu-left">
-                <li class="menu-item"><a href="#platform">Home</a></li>
-                <li class="menu-item"><a href="#setup">Setup BlockChain ID</a></li>
-                <li class="menu-item"><a href="#Export">Export ID</a></li>
-                <li class="menu-item"><a href="#wallet">BlockChain Wallet</a></li>
+                <li class="menu-item"><a href="index.html">Home</a></li>
+                <li class="menu-item"><a href="./html/Generate.html">Show your ID</a></li>
+                <li class="menu-item"><a href="#Comming soon">Export ID</a></li>
+                <li class="menu-item"><a href="#Comming soon">BlockChain Wallet</a></li>
+                <li class="menu-item" id="loginLink"><a href="./html/Security.html">Login/Signup</a></li>
             </ul>
-            <ul class="menu-right">
-                <li><a href="Security.html"><img src="profile-icon.png" alt="Profile Icon"></a></li>
-                <li><a href="#settings"><img src="settings-icon.png" alt="Settings Icon"></a></li>
+            <ul class="menu-right" id="profileMenu">
+                <li><a href="./html/Generate.html" id="profileLink"><img src="./media/profile-icon.png" alt="Profile Icon"></a></li>
+                <li><a href="#comming soon"><img src="./media/settings-icon.png" alt="Settings Icon"></a></li>
             </ul>
         </nav>
     </header>
 
     <section id="Create" class="section">
         <h2>1. Create a BlockChain ID</h2>
-        <p>User can creates any number of ID(s) for different people from the same account.</p>
+        <p>User can create any number of ID(s) for different people from the same account.</p>
     </section>
 
     <section id="Save" class="section">
         <h2>2. Save that ID into your Wallet</h2>
-        <p>User can Save those ID(s) to their wallet or export them</p>
+        <p>User can save those ID(s) to their wallet or export them.</p>
     </section>
 
     <section id="Access" class="section">
         <h2>3. Access your BlockChain Wallet in your profile for those IDs</h2>
-        <p>The user can provide their ID to the applications which require them</p>
+        <p>The user can provide their ID to the applications which require them.</p>
     </section>
-    <!-- Add sections for other steps -->
 
     <footer class="footer">
         <div class="aqua-box-bottom">
             <p>&copy; 2023 Amity International School, Sector - 43, Creative Submission</p>
         </div>
     </footer>
+
+    <script>
+        let userLoggedIn = false;
+
+        function openProfile() {
+            if (userLoggedIn) {
+                window.location.href = "profile.html";
+            } else {
+                window.location.href = "./html/Security.html";
+                alert("Please log in or sign up to access your profile.");
+            }
+        }
+
+        function openlogin() {
+            if (userLoggedIn) {
+                alert("Already logged in!");
+            } else {
+                window.location.href = "./html/Security.html";
+            }
+        }
+
+        function showProfileLink() {
+            userLoggedIn = true;
+            document.getElementById("loginLink").style.display = "none";
+            document.getElementById("profileMenu").style.display = "inline";
+        }
+
+        const profileLink = document.querySelector('#profileLink');
+        if (profileLink) {
+            profileLink.addEventListener('click', openProfile);
+        }
+
+        const loginLink = document.querySelector('#loginLink');
+        if (loginLink) {
+            loginLink.addEventListener('click', openlogin);
+        }
+    </script>
 </body>
 </html>

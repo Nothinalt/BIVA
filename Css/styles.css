@@ -1,7 +1,7 @@
 /* styles.css */
 body {
     font-family: 'Roboto', sans-serif;
-    background-image: url('railway-track.jpg');
+    background-image: url('/BIVA/media/railway-track.jpg');
     background-size: cover;
     margin: 0;
     padding: 0;
