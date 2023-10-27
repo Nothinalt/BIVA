@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blockchain Identity Verification App</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <header class="header">
@@ -14,30 +14,30 @@
         <nav class="ribbon">
             <ul class="menu-left">
                 <li class="menu-item"><a href="#platform">Home</a></li>
-                <li class="menu-item"><a href="#setup">Setup BlockChain ID</a></li>
+                <li class="menu-item"><a href="CreateID.html">Setup BlockChain ID</a></li>
                 <li class="menu-item"><a href="#Export">Export ID</a></li>
                 <li class="menu-item"><a href="#wallet">BlockChain Wallet</a></li>
             </ul>
             <ul class="menu-right">
-                <li><a href="#profile"><img src="profile-icon.png" alt="Profile Icon"></a></li>
-                <li><a href="#settings"><img src="settings-icon.png" alt="Settings Icon"></a></li>
+                <li><a href="#profile"><img src="{{ url_for('static', filename='profile-icon.png') }}" alt="Profile Icon"></a></li>
+                <li><a href="#settings"><img src="{{ url_for('static', filename='settings-icon.png') }}" alt="Settings Icon"></a></li>
             </ul>
         </nav>
     </header>
 
     <section id="Create" class="section">
         <h2>1. Create a BlockChain ID</h2>
-        <p>User can creates any number of ID(s) for different people from the same account.</p>
+        <p>User can create any number of ID(s) for different people from the same account.</p>
     </section>
 
     <section id="Save" class="section">
         <h2>2. Save that ID into your Wallet</h2>
-        <p>User can Save those ID(s) to their wallet or export them</p>
+        <p>User can Save those ID(s) to their wallet or export them.</p>
     </section>
 
     <section id="Access" class="section">
         <h2>3. Access your BlockChain Wallet in your profile for those IDs</h2>
-        <p>The user can provide their ID to the applications which require them</p>
+        <p>The user can provide their ID to the applications which require them.</p>
     </section>
     <!-- Add sections for other steps -->
 
